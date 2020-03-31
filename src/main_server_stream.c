@@ -33,8 +33,6 @@ int main(int argc, char *argv[]) {
     char buf[BUF_SIZE];
     while((numRead = read(new_sock, buf, BUF_SIZE)) > 0) 
         write(STDOUT_FILENO, buf, numRead);
-        //if(write(STDOUT_FILENO, buf, numRead) != numRead)
-            //fatal("partial/failed write");
 
     if(numRead == -1)
         handle_error("read");
@@ -42,14 +40,5 @@ int main(int argc, char *argv[]) {
     if(close(new_sock) == -1)
         handle_error("close");
 
-    //remove(SOCKNAME);
     return 0;
 }
-
-
-
-
-
-
-
-
